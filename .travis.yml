@@ -14,6 +14,7 @@ jobs:
         provider: heroku
         app: gem-rails-ohmy
         api_key: $HEROKU_AUTH_TOKEN
+        strategy: git
 
 before_install:
   - gem update --system
