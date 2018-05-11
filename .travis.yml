@@ -28,4 +28,9 @@ before_install:
 
 install: bundle install --retry=3
 
-
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on: 
+    branch: master
+  
