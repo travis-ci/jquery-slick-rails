@@ -10,17 +10,11 @@ jobs:
   include:
     - stage: redeploy-app
       script: skip
-      deploy: &heroku
-        provider: heroku
-        app: gem-rails-ohmy
-        api_key: $HEROKU_AUTH_TOKEN
-        strategy: api
-
-before_deploy:
-  - mkdir build
-  - cd build
-  - git clone https://github.com/travis-ci/rails-demo
-  - cd ./rails-demo
+      deploy:
+        provider: script
+        script: bash deploy.sh
+        on: 
+          branch: master
 
 before_install:
   - gem update --system
@@ -28,9 +22,4 @@ before_install:
 
 install: bundle install --retry=3
 
-deploy:
-  provider: script
-  script: bash deploy.sh
-  on: 
-    branch: master
-  
+
