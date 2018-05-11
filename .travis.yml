@@ -20,7 +20,7 @@ before_deploy:
   - mkdir build
   - cd build
   - git clone https://github.com/travis-ci/rails-demo
-
+  - cd ./rails-demo
 
 before_install:
   - gem update --system
